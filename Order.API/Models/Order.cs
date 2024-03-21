@@ -11,6 +11,12 @@ namespace Order.API.Models
         }
         public int Id { get; set; }
         public DateTime Created { get; private set; }
+        public int TotalPrice { 
+            get
+            {
+                return this.Products.Sum(x=>x.Price);
+            }
+        }
         public List<Product> Products { get; private set; }
 
         public void AddProduct(Product product)
